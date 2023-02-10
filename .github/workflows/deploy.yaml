@@ -1,12 +1,10 @@
-name:my-shop
-#triggers(events)
+name: my-shop
 on:
   push:
   pull_request:
     branches:
       -master
 
-#functions(what needs to be dond)
 jobs:
   build:
   #build name is optional
