@@ -12,12 +12,11 @@ import {
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
 import { Signin } from './components/authentications/Signin';
-import MainRoutes from './components/routes/MainRoutes';
+import MainRoutes from './routes/MainRoutes';
 
 function App() {
   return (
     <>
-       <ColorModeSwitcher justifySelf="flex-end" />
       <MainRoutes/>
      
     </>

@@ -1,0 +1,48 @@
+name:my-shop
+#triggers(events)
+on:
+  push:
+  pull_request:
+    branches:
+      -master
+
+#functions(what needs to be dond)
+jobs:
+  build:
+  #build name is optional
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: action/checkout@v3
+      - name: Install Node 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - name: Install dependencies
+        run: npm i
+      - name: build project
+        run: npm run build
+      - name: Upload artifact in order to deploy
+        run: actions/upload-artifact@v2
+        with:
+          name: production-files
+          path: ./build
+
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps: 
+      - name: Download artifact
+        run: actions/download-artifact@v2
+        with:
+          name: production-files
+          path: ./build
+      - name: Deploy to github pages
+        uses: peaceiris/action-gh-pages
+        with:
+          github_token: ${{secrets.GIT_SECRETE_KEY}}
+          publish_dir: ./build
