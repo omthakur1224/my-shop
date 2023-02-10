@@ -7,13 +7,12 @@ on:
 
 jobs:
   build:
-  #build name is optional
     name: Build
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: action/checkout@v3
+        uses: actions/checkout@v3
       - name: Install Node 16
         uses: actions/setup-node@v3
         with:
@@ -28,19 +27,19 @@ jobs:
           name: production-files
           path: ./build
 
-  deploy:
-    name: deploy
-    runs-on: ubuntu-latest
-    needs: build
+deploy:
+  name: deploy
+  runs-on: ubuntu-latest
+  needs: build
 
-    steps: 
-      - name: Download artifact
-        run: actions/download-artifact@v2
-        with:
-          name: production-files
-          path: ./build
-      - name: Deploy to github pages
-        uses: peaceiris/action-gh-pages
-        with:
-          github_token: ${{secrets.GIT_SECRETE_KEY}}
-          publish_dir: ./build
+  steps: 
+    - name: Download artifact
+      run: actions/download-artifact@v2
+      with:
+        name: production-files
+        path: ./build
+    - name: Deploy to github pages
+      uses: peaceiris/action-gh-pages
+      with:
+        github_token: ${{secrets.GIT_SECRETE_KEY}}
+        publish_dir: ./build
