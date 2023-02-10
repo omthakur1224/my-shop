@@ -1,5 +1,5 @@
 import { Button, ButtonGroup, VisuallyHidden } from '@chakra-ui/react'
-import { GoogleAuthProvider, OAuthProvider, onAuthStateChanged, signInWithPopup } from 'firebase/auth'
+import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from 'firebase/auth'
 import { useEffect,useState } from 'react';
 import { auth } from '../../firebase.config';
 import { GitHubIcon, GoogleIcon, TwitterIcon } from './ProviderIcons';
