@@ -16,3 +16,7 @@ export const handleAuth=(email,password)=>async(dispatch)=>{
         dispatch({type:types.AUTH_ERROR,payload:err})
     }
 }
+
+export const logout=()=>(dispatch)=>{
+    return dispatch({type:types.LOGOUT_SUCCESS,payload:false})
+}

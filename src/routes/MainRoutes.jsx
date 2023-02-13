@@ -5,6 +5,7 @@ import { Signin } from '../components/authentications/Signin'
 import { SignUp} from '../components/authentications/SignUp'
 import Navbar from '../components/Navbar'
 
+
 const  MainRoutes= () => {
   return (
     <>

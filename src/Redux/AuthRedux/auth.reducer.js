@@ -1,9 +1,10 @@
-import { AUTH_SUCCESS } from "./auth.actiontypes"
+import { AUTH_SUCCESS, LOGOUT_SUCCESS } from "./auth.actiontypes"
 
 const initialState={
     isAuth:false,
     isError:false,
-    isLoading:false
+    isLoading:false,
+    token:""
 }
 
 export const AuthReducer=(state=initialState,{type,payload})=>{
@@ -14,8 +15,18 @@ export const AuthReducer=(state=initialState,{type,payload})=>{
                 ...state,
                 isAuth:true,
                 isError:false,
-                isLoading:false
+                isLoading:false,
+                token:payload
             }
+            case LOGOUT_SUCCESS:
+                return {
+                    ...state,
+                    isAuth:false,
+                    isError:false,
+                    isLoading:false,
+                    token:""
+                }
+
         default :
         return state
     }
