@@ -2,27 +2,25 @@ import React,{useEffect} from 'react'
 
 import { Box, Flex } from '@chakra-ui/react';
 
-import { useLocation, useSearchParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+
 import { getProducts } from '../Redux/ProductReducx/product.action';
+import { useDispatch } from 'react-redux';
 
-const Homepage = () => {
-  const [searchParams]=useSearchParams();
+const Men = () => {
 
-  const location=useLocation();
-  const dispatch=useDispatch()
-
+  const dispatch= useDispatch();
+ 
   useEffect(()=>{
    
       dispatch(getProducts())
+    
    
-    // dispatch(getProducts())
   },[])
   return (
     <div>
       <Flex>
         <Box minW={300}>
-            {/* <Filter/> */}
+          
         </Box>
           {/* <Flex flexWrap={'wrap'}>
             {data.length > 0&& data.map((item,index)=>{
@@ -34,4 +32,4 @@ const Homepage = () => {
   )
 }
 
-export default Homepage
+export default Men

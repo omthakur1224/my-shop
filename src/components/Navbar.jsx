@@ -250,40 +250,42 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: 'Home',
-    children: [
-      {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
-        href: '/home',
-      },
-      {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
-      },
-    ],
+    href: '/home',
+    // children: [
+    //   {
+    //     label: 'Explore Design Work',
+    //     subLabel: 'Trending Design to inspire you',
+    //     href: '/home',
+    //   },
+    //   {
+    //     label: 'New & Noteworthy',
+    //     subLabel: 'Up-and-coming Designers',
+    //     href: '#',
+    //   },
+    // ],
   },
   {
     label: "Women's",
-    children: [
-      {
-        label: 'Job Board',
-        subLabel: 'Find your dream design job',
-        href: '#',
-      },
-      {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
-        href: '#',
-      },
-    ],
+    href: '/women',
+    // children: [
+    //   {
+    //     label: 'Job Board',
+    //     subLabel: 'Find your dream design job',
+    //     href: '#',
+    //   },
+    //   {
+    //     label: 'Freelance Projects',
+    //     subLabel: 'An exclusive list for contract work',
+    //     href: '#',
+    //   },
+    // ],
   },
   {
     label: "'Men's'",
-    href: '#',
+    href: '/men',
   },
-  {
-    label: 'Hire Designers',
-    href: '#',
-  },
+  // {
+  //   label: 'Hire Designers',
+  //   href: '#',
+  // },
 ];
