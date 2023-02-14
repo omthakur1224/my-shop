@@ -25,11 +25,17 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../Redux/AuthRedux/auth.action';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
- const isAuth=useSelector(store=>store.AuthReducer.isAuth);
+
+ const isAuth=useSelector(store=>store.authReducer.isAuth);
+ const token=useSelector(store=>store.authReducer.token);
  const dispatch=useDispatch();
  const navigate=useNavigate();
+ console.log(isAuth,'auth in navbar')
+ useEffect(()=>{},[isAuth])
   return (
     <Box>
       <Flex
@@ -67,32 +73,48 @@ export default function Navbar() {
             <DesktopNav />
           </Flex>
         </Flex>
-    {
-      !isAuth?
       <Stack
         flex={{ base: 1, md: 0 }}
         justify={'flex-end'}
         direction={'row'}
         spacing={6}>
-        <Button
-          as={'a'}
-          fontSize={'sm'}
-          fontWeight={400}
-          variant={'link'}
-          href={'/signin'}>
-          Sign In
-        </Button>
-        <Box src='./../../public/cart.png'
-            alt='cart'
-            w='25px'
-            h={25}
-            style={{"borderRadius":"50%","border":"slid red 1px","backgroundColor":"grey"}}
-           _hover={{
-            bg: 'pink.300',
-          }}>
-          </Box>
-        </Stack>:<Button onClick={()=>{dispatch(logout()).then(()=>navigate('/home'))}}>Logout</Button>
-      }
+
+        <Button as={'a'}
+            fontSize={'sm'}
+            fontWeight={600}
+            color={'white'}
+            bg={'pink.400'}
+            // href={'#'}
+            variant={'link'}
+            href={'/cart'}
+            // _hover={{
+              //   bg: 'pink.300',
+              // }}
+              >
+            <Image src='/cart.png'
+                      alt='cart'
+                      w='25px'
+                      h={25}
+                      // style={{"borderRadius":"50%","border":"slid red 1px","backgroundColor":"grey"}}
+                      _hover={{
+                        bg: 'pink.300',
+                      }} />
+          </Button>
+          {
+            token!==""?
+            <Button
+            // display={{ base: 'none', md: 'inline-flex' }}
+                  as={'a'}
+                  fontSize={'sm'}
+                  fontWeight={400}
+                  href={'/signin'}>
+                  Sign In
+            </Button>:
+           <Button onClick={()=>{dispatch(logout(token)).then((res)=>
+              navigate('/home'))}}>
+              Logout</Button>
+          }
+           </Stack>
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
@@ -155,7 +177,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
       href={href}
       role={'group'}
       display={'block'}
-      p={2}
+      p={0}
       rounded={'md'}
       _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
       <Stack direction={'row'} align={'center'}>
@@ -250,7 +272,7 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: 'Home',
-    href: '/home',
+    href: '/',
     // children: [
     //   {
     //     label: 'Explore Design Work',

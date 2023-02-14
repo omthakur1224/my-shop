@@ -7,13 +7,14 @@ const initialState={
     token:""
 }
 
-export const AuthReducer=(state=initialState,{type,payload})=>{
+export const authReducer=(state=initialState,{type,payload})=>{
 
     switch(type){
         case AUTH_SUCCESS:
+            console.log(!state.auth,'forem reducer')
             return {
                 ...state,
-                isAuth:true,
+                isAuth:!state.isAuth,
                 isError:false,
                 isLoading:false,
                 token:payload

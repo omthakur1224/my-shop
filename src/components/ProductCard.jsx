@@ -11,7 +11,7 @@ import {
   } from '@chakra-ui/react';
   import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
   import { FiShoppingCart } from 'react-icons/fi';
-import { Product } from '../utils/types';
+
 //   
   const data = {
     isNew: true,
@@ -23,13 +23,12 @@ import { Product } from '../utils/types';
     numReviews: 34,
   };
   
-
-  
+ 
   function ProductCard({id,price,title,image}) {
     return (
       <Flex p={50} w="fit-content" alignItems="center" justifyContent="center">
         <Box
-          bg={useColorModeValue('white', 'gray.800')}
+          bg={useColorModeValue('white', 'gray.500')}
           maxW="sm"
           borderWidth="1px"
           rounded="lg"

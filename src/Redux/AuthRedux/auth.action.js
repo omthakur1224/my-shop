@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as types from './auth.actiontypes.js';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from '../../firebase.config.js';
 
 export const handleAuth=(email,password)=>async(dispatch)=>{
@@ -9,14 +9,23 @@ export const handleAuth=(email,password)=>async(dispatch)=>{
 
     try{
         await signInWithEmailAndPassword(auth,email,password)
-
-        .then((res)=>dispatch({type:types.AUTH_SUCCESS,payload:res.user.accesstoken}))
+        .then((res)=>{
+            dispatch({type:types.AUTH_SUCCESS,payload:res.user.accesstoken})
+            return res.user.accesstoken
+        })
     }
     catch(err){
         dispatch({type:types.AUTH_ERROR,payload:err})
     }
 }
 
-export const logout=()=>(dispatch)=>{
-    return dispatch({type:types.LOGOUT_SUCCESS,payload:false})
+export const logout=(token)=>(dispatch)=>{
+        signOut()
+        .then(()=>
+         dispatch({type:types.LOGOUT_SUCCESS,payload:false})
+        ).
+    catch((err=>{
+
+        console.log(err)
+    }))
 }

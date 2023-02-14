@@ -30,14 +30,18 @@ import { handleAuth } from '../../Redux/AuthRedux/auth.action'
     const [password,setPassword]=useState('');
 
     const dispatch=useDispatch();
-    const isAuth=useSelector(store=>store.AuthReducer.isAuth);
+    const isAuth=useSelector(store=>store.authReducer.isAuth);
     const navigate=useNavigate()
     //sign in method
 
     const handleSignin=()=>{
       
         dispatch(handleAuth(email,password))
-       .then((res)=> isAuth?navigate('/home'):navigate('/signin')  )
+       .then((res)=> { setEmail("");setPassword("");
+        navigate('/')
+      
+          
+      } )
       
     }
 
