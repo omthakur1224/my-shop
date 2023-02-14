@@ -40,10 +40,10 @@ const Filter = () => {
                   onChange={handleFilterValue}>
             <Stack spacing={[1, 5]} direction={['column' ]}>
               <Checkbox value='electronics'>Electronics</Checkbox>
-              <Checkbox value='jewellery'>Jewellery</Checkbox>
+              <Checkbox value='jewelery'>Jewellery</Checkbox>
               <Checkbox value="men's clothing">Men's clothing</Checkbox>
               <Checkbox value="women's clothing">Women's clothing</Checkbox>
-              <Checkbox value='bags'>Bags</Checkbox>
+              {/* <Checkbox value="bag's">Bags</Checkbox> */}
             </Stack>
         </CheckboxGroup>  
 

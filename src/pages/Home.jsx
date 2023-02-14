@@ -29,7 +29,7 @@ const Homepage = () => {
   return (
     <div>
       <Flex>
-       <Box minW={300}>
+       <Box minW={200}>
             <Filter/>
         </Box>
           <Flex flexWrap={'wrap'}>

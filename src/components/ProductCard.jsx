@@ -22,8 +22,7 @@ import {
     rating: 4.2,
     numReviews: 34,
   };
-  
- 
+
   function ProductCard({id,price,title,image}) {
     return (
       <Flex p={50} w="fit-content" alignItems="center" justifyContent="center">
