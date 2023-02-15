@@ -14,7 +14,17 @@ export const getProducts=(params)=>async(dispatch)=>{
 export const getWomenProducts=(params)=>async(dispatch)=>{
 
     try{
-        axios.get("https://fakestoreapi.com/products?category=women's clothing",params)
+        axios.get("https://fakestoreapi.com/products?category=women",params)
+        .then((res)=>dispatch({type:GET_PRODUCT_SUCCESS,payload:res.data}))
+    }catch(err){
+        console.log(err)
+        dispatch({type:GET_PRODUCT_ERROR})
+    }
+}
+export const getMenProducts=(params)=>async(dispatch)=>{
+
+    try{
+        axios.get("https://fakestoreapi.com/products?category=men",params)
         .then((res)=>dispatch({type:GET_PRODUCT_SUCCESS,payload:res.data}))
     }catch(err){
         console.log(err)

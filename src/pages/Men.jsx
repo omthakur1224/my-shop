@@ -4,7 +4,7 @@ import { Box, Flex } from '@chakra-ui/react';
 
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from '../Redux/ProductReducx/product.action';
+import { getMenProducts, getProducts } from '../Redux/ProductReducx/product.action';
 import { productReducer } from './../Redux/ProductReducx/product.reducer';
 import ProductCard from '../components/ProductCard';
 import Filter from '../components/Filter';
@@ -22,7 +22,7 @@ const Men = () => {
           category:searchParams.getAll('category')
         }
       }
-      dispatch(getProducts(getProductParams))
+      dispatch(getMenProducts(getProductParams))
     }
 
   },[location.search])
