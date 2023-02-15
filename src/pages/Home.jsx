@@ -29,9 +29,9 @@ const Homepage = () => {
   return (
     <div>
       <Flex>
-       <Box minW={200}>
+       {/* <Box minW={200}>
             <Filter/>
-        </Box>
+        </Box> */}
           <Flex flexWrap={'wrap'}>
             {data.length > 0&& data.map((item,index)=>{
               return <ProductCard key={item.id} {...item}/>
