@@ -9,7 +9,6 @@ import {
     chakra,
     Tooltip,
   } from '@chakra-ui/react';
-  import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
   import { FiShoppingCart } from 'react-icons/fi';
 
 //   
@@ -25,7 +24,7 @@ import {
 
   function ProductCard({id,price,title,image}) {
     return (
-      <Flex p={50} w="fit-content" alignItems="center" justifyContent="center">
+      <Flex  w="100%" h={"100%"} >
         <Box
           bg={useColorModeValue('white', 'gray.500')}
           maxW="sm"
@@ -42,15 +41,16 @@ import {
               bg="red.200"
             />
           )}
-  
-          <Image
-            boxSize={300}
-            objectFit='contain'
-            src={image}
-            alt={`Picture of ${data.name}`}
-            roundedTop="lg"
-          />
-  
+        <Box  display={'flex'} justifyContent="center">
+              <Image
+                boxSize={250}
+                objectFit='contain'
+                src={image}
+                alt={`Picture of ${data.name}`}
+                roundedTop="lg"
+                />
+      
+            </Box>
           <Box p="6">
             {/* <Box d="flex" alignItems="baseline"> */}
               {data.isNew && (

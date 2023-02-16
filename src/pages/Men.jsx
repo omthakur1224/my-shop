@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
 
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,16 +28,16 @@ const Men = () => {
   },[location.search])
   return (
     <div>
-      <Flex>
-       <Box minW={200}>
+       <Grid templateColumns='repeat(3, 33%)' gap={1} ml={20}>
+       {/* <Box minW={200}>
             <Filter/>
-        </Box>
-          <Flex flexWrap={'wrap'}>
+        </Box> */}
             {data.length > 0&& data.map((item,index)=>{
-              return <ProductCard key={item.id} {...item}/>
+              return  <GridItem w='250px' h={500}  bg='grey.500' >
+                        <ProductCard key={item.id} {...item}/>
+                    </GridItem>
               })}
-          </Flex>
-      </Flex>
+      </Grid>
 </div>
   )
 }

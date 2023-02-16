@@ -101,7 +101,7 @@ export default function Navbar() {
                       }} />
           </Button>
           {
-            token!==""?
+            token==""?
             <Button
             // display={{ base: 'none', md: 'inline-flex' }}
                   as={'a'}
@@ -247,24 +247,6 @@ const MobileNavItem = ({ label, children, href }) => {
           />
         )}
       </Flex>
-
-      {/* <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
-        <Stackimport { AuthReducer } from './../Redux/AuthRedux/auth.reducer';
-
-          mt={2}
-          pl={4}
-          borderLeft={1}
-          borderStyle={'solid'}
-          borderColor={useColorModeValue('gray.200', 'gray.700')}
-          align={'start'}>
-          {children &&
-            children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
-                {child.label}
-              </Link>
-            ))}
-        </Stackimport>
-      </Collapse> */}
     </Stack>
   );
 };
